@@ -1,7 +1,7 @@
 package org.example.entity;
 
 public class Client {
-    String type;
+    public String type;
     int number;
 
     public Client(String type, int number) {
