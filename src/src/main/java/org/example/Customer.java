@@ -8,11 +8,13 @@ public class Customer {
         BarberingShop shop = new BarberingShop();
         System.out.println("Press Space to simulate an event. Type anything else to exit");
         Scanner scanner = new Scanner(System.in);
+        int eventNumber = 1;
         while (scanner.hasNextLine()){
             String input = scanner.nextLine();
             System.out.println("Input detected: " + input);
-            if(input.isEmpty()){
-                shop.processEvent();
+            if(input.equals(" ")){
+                shop.processEvent(eventNumber);
+                eventNumber++;
             } else{
                 break;
             }

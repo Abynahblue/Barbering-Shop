@@ -7,31 +7,30 @@ import java.util.*;
 
 public class BarberingShop {
     Chair mainChair;
-    List<Chair> waitingChairs;
+    LinkedList<Chair> waitingChairs;
     Queue<Client> queue;
     public BarberingShop(){
         mainChair = new Chair();
-        waitingChairs = new ArrayList<>();
-        for(int i = 0; i <= 5;i++){
+        waitingChairs = new LinkedList<>();
+        for(int i = 0; i < 5;i++){
             waitingChairs.add(new Chair());
         }
         queue = new LinkedList<>();
     }
-    public void displayState(){
-        System.out.println("Main Chair: " + (mainChair.isOccupied() ? mainChair.client : "Empty"));
-        System.out.println("Waiting Chairs: ");
+    public void displayState(int eventNumber){
+        System.out.print(eventNumber + " ---> ");
+        System.out.print("Main Chair: " + (mainChair.isOccupied() ? mainChair.client : "_____"));
+        System.out.print("Waiting Chairs: ");
         for (Chair chair : waitingChairs){
-            System.out.print(chair.isOccupied() ? chair.client : "Empty");
+            System.out.print(chair.isOccupied() ? chair.client : "_____");
             System.out.print(" ");
         }
         System.out.println();
     }
 
-    public void processEvent(){
-        Scanner scanner = new Scanner(System.in);
-        char input = scanner.nextLine().charAt(0);
+    public void processEvent(int eventNumber){
         Random rand = new Random();
-        int x = rand.nextInt(5);
+        int x = rand.nextInt(4);
         String event = "";
         switch (x){
             case 0:
@@ -50,7 +49,6 @@ public class BarberingShop {
                 break;
             case 2:
             case 3:
-            case 4:
                 event = "++ ORD" + (queue.size() + 1);
                 if (!mainChair.isOccupied()){
                     mainChair.assignClient(new Client("ORD",queue.size() + 1));
@@ -59,7 +57,7 @@ public class BarberingShop {
                 }
                 break;
         }
-        displayState();
+        displayState(eventNumber);
         System.out.println(x + "---> (" + event + " )");
     }
 }
