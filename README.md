@@ -10,20 +10,24 @@ Serving the next customer in the queue
 Class Structure
 Customer: Represent the entry point to the barber shop operations 
 BarberShop: Represents the main class managing the barber shop's operations.
+
 Attributes:
 queue: LinkedList data structure representing the customer queue.
 currentCustomer: Tracks the currently served customer.
 ordCount, vipCount: Counters for regular and VIP customers, used to assign customer names.
+
 Methods:
 startShop(int event): Initiates different events such as customer arrivals and serving customers based on event codes.
 addToQueue(String name, boolean isVip): Adds a customer to the queue, considering VIP status and queue capacity.
 serveNextCustomer(): Serves the next customer in the queue.
 isQueueFull(): Checks if the queue is full.
 printState(String message, int eventNumber): Prints the current state of the barber shop, including the event, current customer, and queue status.
+
 Event Codes
 0: Serving the next customer
 1: VIP customer arrival
 2, 3: Regular customer arrival
+
 How to Run
 Compile and run the BarberShop class using a Java development environment or command-line tools.
 Notes
