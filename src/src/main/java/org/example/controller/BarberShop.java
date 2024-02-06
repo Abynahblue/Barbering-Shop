@@ -1,6 +1,5 @@
 package org.example.controller;
 
-import java.text.MessageFormat;
 import java.util.LinkedList;
 
 public class BarberShop {
@@ -77,7 +76,7 @@ public class BarberShop {
                             vipIndex = 0;
                             break;
                         }
-                        vipIndex = i - 1;
+                        vipIndex = i;
                         break;
                     }
                 }
@@ -124,7 +123,7 @@ public class BarberShop {
             sb.append(String.join(" : ", queue));
         }
         int freeSpaceLeft = 5-queueLength;
-        for(int i=0; i<= freeSpaceLeft; i++){
+        for(int i=0; i< freeSpaceLeft; i++){
             sb.append(" : ---- ");
         }
         sb.append("]");
